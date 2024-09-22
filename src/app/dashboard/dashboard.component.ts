@@ -1,19 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class AppComponent {
-
+export class DashboardComponent {
+  
+  
   locations: string[] = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'];
+  departments: string[] = ['HR', 'IT', 'Sales', 'Marketing', 'Business'];
   isAddPopupOpen = false;
   isEditPopupOpen = false;
   isDeletePopupOpen = false;
   selectedEmployee: any = null;
-  newEmployee: any = { employeeId: '', employeeName: '', employeePhone: '', dob: '', location: '', gender: '' };
+  newEmployee: any = { employeeId: '', employeeName: '', employeePhone: '', dob: '', location: '', department: '', gender: '' };
   gender = ['Male', 'Female'];
 
 
@@ -24,6 +26,7 @@ export class AppComponent {
       employeePhone: '9457895489',
       dob: '1990-01-15',
       location: 'New York',
+      department: 'HR',
       gender: 'Male'
     },
     {
@@ -32,6 +35,7 @@ export class AppComponent {
       employeePhone: '7845624896',
       dob: '1985-03-22',
       location: 'Los Angeles',
+      department: 'IT',
       gender: 'Female'
     },
     {
@@ -40,6 +44,7 @@ export class AppComponent {
       employeePhone: '78412549865',
       dob: '1992-06-30',
       location: 'Chicago',
+      department: 'Sales',
       gender: 'Male'
     },
     {
@@ -48,6 +53,7 @@ export class AppComponent {
       employeePhone: '8954795235',
       dob: '1988-11-12',
       location: 'Houston',
+      department: 'Marketing',
       gender: 'Female'
     },
     {
@@ -56,6 +62,7 @@ export class AppComponent {
       employeePhone: '954721538',
       dob: '1995-08-24',
       location: 'Miami',
+      department: 'Business',
       gender: 'Male'
     }
   ];
@@ -70,6 +77,7 @@ export class AppComponent {
       employeePhone: '',
       dob: '',
       location: '',
+      department: '',
     };
     this.isAddPopupOpen = true;
   }
@@ -129,4 +137,5 @@ export class AppComponent {
     this.employees = this.employees.filter((emp) => emp.employeeId !== this.selectedEmployee.employeeId);
     this.closeDeletePopup();
   }
+
 }
